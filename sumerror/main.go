@@ -5,6 +5,7 @@ import (
 	"strconv"
 )
 
+//Sum converts two strings to int and returns their sum
 func Sum(a, b string) (int64, error) {
 	if _, err := strconv.ParseInt(a, 10, 64); err != nil {
 		return 0, err
