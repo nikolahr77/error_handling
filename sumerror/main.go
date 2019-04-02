@@ -7,20 +7,21 @@ import (
 
 //Sum converts two strings to int and returns their sum
 func Sum(a, b string) (int64, error) {
-	if _, err := strconv.ParseInt(a, 10, 64); err != nil {
+	i, err := strconv.ParseInt(a, 10, 64)
+	if err != nil {
 		return 0, err
 	}
-	i, _ := strconv.ParseInt(a, 10, 64)
 
-	if _, err := strconv.ParseInt(b, 10, 64); err != nil {
+	v, err := strconv.ParseInt(b, 10, 64)
+	if err != nil {
 		return 0, err
 	}
-	v, _ := strconv.ParseInt(b, 10, 64)
+
 	return i + v, nil
 }
 
 func main() {
-	i, err := Sum("aaaava", "5")
+	i, err := Sum("4", "5")
 	if err != nil {
 		fmt.Println(err)
 	}
