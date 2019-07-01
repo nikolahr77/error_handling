@@ -19,7 +19,3 @@ func Check(a int) {
 		panic(fmt.Sprintf("%v", a))
 	}
 }
-
-func main() {
-	Sum(5, 10)
-}

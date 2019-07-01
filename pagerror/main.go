@@ -7,7 +7,7 @@ import (
 
 // Pages contains a slice of strings that will hold the information
 type Pages struct {
-	//Elements holds all of the information 
+	//Elements holds all of the information
 	Elements []string
 	// PageSize specifies the number of elements that a single page will hold
 	PageSize int
@@ -23,10 +23,10 @@ func (p *Pages) FirstPage() []string {
 // LastPage returns the elements on the last page and sets the current page to last
 func (p *Pages) LastPage() []string {
 	p.current = len(p.Elements) / p.PageSize
-	residue := len(p.Elements)%p.PageSize
+	residue := len(p.Elements) % p.PageSize
 	if residue != 0 {
 		p.current++
-		return p.Elements[len(p.Elements)- residue:]
+		return p.Elements[len(p.Elements)-residue:]
 	}
 	return p.Elements[len(p.Elements)-p.PageSize:]
 }
@@ -38,13 +38,13 @@ func (p *Pages) GetCurrentPageNumber() int {
 
 // HasNext checks if there is a page after the one we are currently on
 func (p Pages) HasNext() bool {
-	i := len(p.Elements) + p.PageSize - (p.current +1)*p.PageSize
+	i := len(p.Elements) + p.PageSize - (p.current+1)*p.PageSize
 	return i > 0
 }
 
 // HasPrevious checks if there is a page before the one we are currently on
 func (p Pages) HasPrevious() bool {
-	i := len(p.Elements)  - (p.current + 1)*(p.PageSize + 1)
+	i := len(p.Elements) - (p.current+1)*(p.PageSize+1)
 	return i <= 0
 }
 
